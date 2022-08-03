@@ -1,0 +1,82 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.testimoniales-blog {
+    margin-top: 5rem;
+    @include m.tablet {
+        @include m.grid(3, 4rem);
+    }
+    &__blog {
+        @include m.tablet {
+            grid-column: 2 / 4;
+        }
+    }
+    &__heading {
+        @include m.heading(true); // convertimos true el salto de linea y entonces aplica el block
+    }
+}
+.testimonial {
+    text-align: center;
+    &__imagen {
+        width: 20rem;
+        margin: 0 auto;
+    }
+    &__contenido {
+        background-color: v.$blanco;
+        padding: 10rem 2rem 2rem 2rem;
+        margin-top: -10rem;
+    }
+    &__nombre {
+        font-size: 2.4rem;
+        font-weight: 700;
+    }
+    &__texto {
+        &::before {
+            content: '';
+            display: inline-block;
+            background-image: url(../img/quote.svg);
+            background-repeat: no-repeat;
+            width: 2rem;
+            height: 2rem;
+            margin-right: 1rem;
+        }
+    }
+}
+.entrada {
+    background-color: v.$blanco;
+    margin-bottom: 2rem;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    @include m.tablet {
+        @include m.grid(5, 2rem);
+        align-items: center;
+    }
+    &__imagen-contenedor {
+        @include m.tablet {
+            grid-column: 1 / 3;  
+        }
+    }
+    &__contenido {
+        padding: 1rem;
+        @include m.tablet {
+            grid-column: 3 / 6; 
+        }
+    }
+    &__imagen {
+        @include m.tablet {
+            height: 30rem;
+            object-fit: cover;
+        }
+    }
+    &__meta {
+        font-size: 1.4rem;
+    }
+    &__enlace {
+        @include m.boton(v.$primario, v.$blanco);
+        display: block;
+        @include m.tablet {
+            display: inline-block;
+        }
+    }
+}
